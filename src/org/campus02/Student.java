@@ -1,5 +1,7 @@
 package org.campus02;
 
+import java.util.Objects;
+
 public class Student {
 
     private int matrNr;
@@ -26,5 +28,27 @@ public class Student {
         this.fullName = fullName;
     }
 
+    // ALT - EINF -> equals and hashcode
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return matrNr == student.matrNr;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(matrNr);
+    }
+
+    // ALT + EINF -> toString()
+    public String toString() {
+        return "Student{" +
+                "matrNr=" + matrNr +
+                ", fullName='" + fullName + '\'' +
+                '}';
+    }
 }
