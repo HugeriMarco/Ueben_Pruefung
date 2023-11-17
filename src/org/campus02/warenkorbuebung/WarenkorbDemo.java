@@ -17,5 +17,7 @@ public class WarenkorbDemo {
         double sum = warenkorb.calulcateSum();
         System.out.println("sum = " + sum);
 
+        System.out.println("warenkorb.getHighestPrice() = " + warenkorb.getHighestPrice());
+
     }
 }

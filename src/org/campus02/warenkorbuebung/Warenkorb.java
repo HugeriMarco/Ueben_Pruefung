@@ -39,7 +39,15 @@ public class Warenkorb {
 
     public double getHighestPrice() {
         // initialwert definieren
+        // double highestPrice = 0.0;
+        double highestPrice = Double.MIN_VALUE;
+
         // über artikelListe iterieren
-        return 0.0;
+        for (Artikel artikel : artikelListe) {
+            if (highestPrice < artikel.getPrice()) {
+                highestPrice = artikel.getPrice();
+            }
+        }
+        return highestPrice;
     }
 }
