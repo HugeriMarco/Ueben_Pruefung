@@ -19,5 +19,6 @@ public class WarenkorbDemo {
 
         System.out.println("warenkorb.getHighestPrice() = " + warenkorb.getHighestPrice());
 
+        System.out.println(warenkorb.getArtikelCount());
     }
 }

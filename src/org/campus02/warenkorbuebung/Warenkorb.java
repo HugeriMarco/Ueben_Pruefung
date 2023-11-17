@@ -1,6 +1,7 @@
 package org.campus02.warenkorbuebung;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Warenkorb {
@@ -74,4 +75,22 @@ public class Warenkorb {
         return new HashSet<>(artikelListe);
     }
 
+    public HashMap<String, Integer> getArtikelCount() {
+        // key -> Datentyp: String; Artikelname
+        // value -> Datentyp: Integer; Anzahl der Artikel mit demselben Namen
+        HashMap<String, Integer> artikelsCountMap = new HashMap<>();
+        for (Artikel artikel : artikelListe) {
+            if (artikelsCountMap.containsKey(artikel.getName())) {
+                int count = artikelsCountMap.get(artikel.getName());
+                int newCount = count + 1;
+                //count = count + 1;
+                artikelsCountMap.put(artikel.getName(), newCount);
+                //artikelsCountMap.put(artikel.getName(), count + 1);
+            } else {
+                artikelsCountMap.put(artikel.getName(), 1);
+            }
+        }
+
+        return artikelsCountMap;
+    }
 }
