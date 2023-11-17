@@ -1,5 +1,7 @@
 package org.campus02.warenkorbuebung;
 
+import java.util.Objects;
+
 public class Artikel {
 
     private int artId;
@@ -36,6 +38,18 @@ public class Artikel {
         this.price = price;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Artikel artikel = (Artikel) o;
+        return artId == artikel.artId && Double.compare(price, artikel.price) == 0 && Objects.equals(name, artikel.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(artId, name, price);
+    }
 
     public String toString() {
         return "Artikel{" +

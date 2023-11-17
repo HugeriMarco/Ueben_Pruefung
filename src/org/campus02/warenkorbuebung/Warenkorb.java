@@ -1,6 +1,7 @@
 package org.campus02.warenkorbuebung;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Warenkorb {
 
@@ -51,5 +52,26 @@ public class Warenkorb {
         return highestPrice;
     }
 
+    public HashSet<Artikel> getUniqueArtikels() {
+        HashSet<Artikel> unique = new HashSet<>();
+        for (Artikel artikel : artikelListe) {
+            unique.add(artikel);
+        }
+        return unique;
+    }
+
+    public ArrayList<Artikel> getUniqueArtikels2() {
+        ArrayList<Artikel> unique = new ArrayList<>();
+        for (Artikel artikel : artikelListe) {
+            if (!unique.contains(artikel)) {
+                unique.add(artikel);
+            }
+        }
+        return unique;
+    }
+
+    public HashSet<Artikel> getUniqueArtikels3() {
+        return new HashSet<>(artikelListe);
+    }
 
 }
